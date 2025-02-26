@@ -19,22 +19,90 @@ and open the template in the editor.
                 <td>Email: </td>
                 <td><input type="email" name="email" id="email"/></td>
             </tr>
-             <tr>
+            <tr>
                 <td>Password: </td>
                 <td><input type="password" name="password" id="password"/></td>
             </tr>
-             <tr>
+            <tr>
                 <td>Confirm Password: </td>
                 <td><input type="password" name="confirm_password" id="confirm_password"/></td>
             </tr>
             <tr>
                 <td colspan="2">USER INFORMATION</td>
             </tr>
-             <tr>
+            <tr>
                 <td>Fullname: </td>
-                <td><input type="full_name" name="full_name" id="full_name"/></td>
+                <td><input type="text" name="full_name" id="full_name"/></td>
             </tr>
-            
+            <tr>
+                <td>Gender: </td>
+                <td> <input type="radio" name="gender" id="gender_male" value="male" checked="checked"> Male </br>
+                    <input type="radio" name="gender" id="gender_female" value="female"> Female </br>
+                </td>
+            </tr>
+            <tr>
+                <td>Date of birth: </td>
+                <td> <select name="dateofbirth" id="dateofbirth" >
+                        <option value=""></option>
+                        <option value="1" selected="selected">1</option>
+                    </select>
+                    <select name="monthofbirth" id="monthofbirth" >
+                        <option value=""></option>
+                        <option value="1" >1</option>
+                    </select>
+                    <select name="monthofbirth" id="monthofbirth" >
+                        <option value=""></option>
+                        <option value="1" >1</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Mobile Phone: </td>
+                <td>
+                    <input type="tel" name="mobile" id="moblie">
+                </td>
+
+            </tr>
+            <tr>
+                <td>Avatar: </td>
+                <td>
+                    <input type="file" name="avatar" id="avatar"/>
+                </td>
+
+            </tr>
+            <tr>
+                <td colspan="2">USER ADDRESS</td>
+            </tr>
+            <tr>
+            <td>Country: </td>
+            <td> <select name="country" id="country" >
+                    <option value=""></option>
+                    <option value="1" selected="selected">Vietnam</option>
+                </select> </td>
+            </tr>
+            <tr>
+            <td>City: </td>
+            <td> <select name="city" id="city" >
+                    <option value=""></option>
+                    <option value="1" selected="selected">HoChiMinh</option>
+                </select> </td>
+            </tr>
+            <tr>
+            <td>Home Address: </td>
+            <td> <textarea name="homeadress">
+                
+
+                </textarea> </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="button" value="Regiter"/>
+                    <input type="button" value="Clear"/>
+                </td>
+                
+            </tr>
+
+
         </table>
     </body>
 </html>
