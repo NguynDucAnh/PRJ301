@@ -7,6 +7,7 @@ package controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -20,51 +21,36 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "MainController", urlPatterns = {"/MainController"})
 public class MainController extends HttpServlet {
 
-    public int GCD(int a, int b) {
-        int min = Math.min(a, b);
-        for (int i = min; i >= 1; i--) {
-            if (a % i == 0 && b % i == 0) {
-                return i;
-            }
-
-        }
-        return 1;
+    protected boolean isValidLogin(String username, String password) {
+        return username.equals("Nguynanh") && password.equals("12345678");
     }
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-
-        /* TODO output your page here. You may use following sample code. */
-        PrintWriter out = response.getWriter();
-        String txta = request.getParameter("txta");
-        String txtb = request.getParameter("txtb");
-        if (txta.isEmpty() || txtb.isEmpty()) {
-            out.println("Vui long nhap lai gia tri");
-            return;
-        }
-        int a = 0;
-        int b = 0;
-        try {
-            a = Integer.parseInt(txta);
-            b = Integer.parseInt(txtb);
-
-            //check a and b > 0
-            if (a <= 0) {
-                out.println("A must be > 0");
+        try (PrintWriter out = response.getWriter()) {
+            String username = request.getParameter("txtUsername");
+            String password = request.getParameter("txtPassword");
+            //check input username and password not NUll and length is minimum 8 characters.
+            if (username.trim().length() <= 8 && username.isEmpty()) {
+                out.println("Username must be grater 8 characters");
                 return;
             }
-            if (b <= 0) {
-                out.println("B must be > 0");
+            if (password.trim().length() <= 8 && password.isEmpty()) {
+                out.println("Password must be grater 8 characters");
                 return;
             }
-            int result = GCD(a, b);
-            out.println("Greatest Common Divisor(" + a + "," + b + ")=" + result);
+            //check login
+            if (isValidLogin(username, password)) {
+                RequestDispatcher rd= request.getRequestDispatcher("search.html");
+                rd.forward(request, response);
+                
+            } else {
+                RequestDispatcher rd= request.getRequestDispatcher("invalid.html");
+                rd.forward(request, response);
+            }
 
-        } catch (Exception e) {
-            out.println("A and B musst be interger!");
         }
-
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

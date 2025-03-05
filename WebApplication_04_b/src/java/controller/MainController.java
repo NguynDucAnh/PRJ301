@@ -36,11 +36,11 @@ public class MainController extends HttpServlet {
           String username= request.getParameter("txtUsername");
           String password= request.getParameter("txtPassword");
           //check input username and password not NUll and length is minimum 8 characters.
-          if(username.trim().length()<=8 && username.isEmpty()){
+          if(username.trim().length()<=8 || username.isEmpty()){
               out.println("Username must be grater 8 characters");
               return;
           }
-          if(password.trim().length()<=8 && password.isEmpty()){
+          if(password.trim().length()<=8 || password.isEmpty()){
               out.println("Password must be grater 8 characters");
               return;
           }
