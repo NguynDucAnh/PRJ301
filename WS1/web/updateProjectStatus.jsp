@@ -22,10 +22,62 @@
 <head>
     <title>Update Project Status</title>
     <style>
-        body { font-family: Arial, sans-serif; text-align: center; }
-        table { width: 80%; margin: auto; border-collapse: collapse; }
-        th, td { border: 1px solid black; padding: 10px; text-align: center; }
-        select, button { padding: 5px; }
+        body { 
+            font-family: Arial, sans-serif; 
+            background-color: #f4f4f4; 
+            text-align: center; 
+        }
+        .container { 
+            width: 80%; 
+            margin: 50px auto; 
+            padding: 20px; 
+            background: white; 
+            border-radius: 10px; 
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.1); 
+        }
+        table { 
+            width: 100%; 
+            border-collapse: collapse; 
+            background: white; 
+            border-radius: 10px; 
+            overflow: hidden; 
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.1); 
+        }
+        th, td { 
+            padding: 12px; 
+            border: 1px solid #ddd; 
+            text-align: center; 
+        }
+        th { 
+            background: #007BFF; 
+            color: white; 
+        }
+        tr:nth-child(even) { 
+            background: #f9f9f9; 
+        }
+        select, button { 
+            padding: 8px; 
+            border-radius: 5px; 
+            border: 1px solid #ccc; 
+        }
+        button { 
+            background: #007BFF; 
+            color: white; 
+            border: none; 
+            cursor: pointer; 
+            font-size: 14px;
+        }
+        button:hover { background: #0056b3; }
+        .back {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: #28a745;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .back:hover { background: #218838; }
     </style>
 </head>
 <body>
